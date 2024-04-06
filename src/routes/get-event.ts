@@ -12,7 +12,7 @@ export async function getEvent(app: FastifyInstance) {
           eventId: z.string().uuid(),
         }),
         response: {
-          200: {
+          200: z.object({
             event: z.object({
               id: z.string().uuid(),
               title: z.string(),
@@ -21,7 +21,7 @@ export async function getEvent(app: FastifyInstance) {
               maximumAttendees: z.number().int().nullable(),
               attendeesAmount: z.number().int(),
             }),
-          },
+          }),
         },
       },
     },
@@ -49,6 +49,18 @@ export async function getEvent(app: FastifyInstance) {
       if (event === null) {
         throw new Error('Event not found.')
       }
+
+      const response = {
+        event: {
+          id: event.id,
+          title: event.title,
+          details: event.details,
+          slug: event.slug,
+          maximumAttendees: event.maximumAttendees,
+          attendeesAmount: event._count.attendees,
+        },
+      }
+      console.log(response)
 
       return reply.status(200).send({
         event: {
