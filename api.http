@@ -2,9 +2,9 @@ POST http://localhost:3333/events
 Content-Type: application/json
 
 {
-  "title": "new eventx",
+  "title": "Event name",
   "details": null,
-  "maximumAttendees": 130
+  "maximumAttendees": 150
 }
 
 ###
