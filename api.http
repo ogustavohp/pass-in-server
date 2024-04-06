@@ -13,8 +13,8 @@ POST http://localhost:3333/events/d2d9dd8d-ccda-4fa0-95d6-be97b2c4c649/attendees
 Content-Type: application/json
 
 {
-  "name": "random name",
-  "email": "email@emailsxx.com"
+  "name": "teste1",
+  "email": "email@emaila.com"
 }
 
 ###
@@ -24,3 +24,11 @@ GET http://localhost:3333/events/d2d9dd8d-ccda-4fa0-95d6-be97b2c4c649
 ###
 
 GET http://localhost:3333/attendees/9/badge
+
+###
+
+GET http://localhost:3333/attendees/12/check-in
+
+###
+
+GET http://localhost:3333/events/d2d9dd8d-ccda-4fa0-95d6-be97b2c4c649/attendees?query=te
