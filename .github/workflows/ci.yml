@@ -32,3 +32,5 @@ jobs:
     - name: Push image
       run: |
           docker push ogustavohp/pass-in-server:${{ steps.generate_sha.outputs.sha }}
+          docker tag ogustavohp/pass-in-server:${{ steps.generate_sha.outputs.sha }} ogustavohp/pass-in-server:latest
+          docker push ogustavohp/pass-in-server:latest
